@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ 核心动画
+ */
 @interface CoreAnimationController : UIViewController
 
 @end
