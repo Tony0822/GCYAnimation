@@ -15,6 +15,8 @@
 		3E1A08A020A3E0B700C8B972 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E1A089F20A3E0B700C8B972 /* main.m */; };
 		3E1A08AA20A3E0B700C8B972 /* GCYAnimationDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E1A08A920A3E0B700C8B972 /* GCYAnimationDemoTests.m */; };
 		3E1A08B520A3E0B700C8B972 /* GCYAnimationDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E1A08B420A3E0B700C8B972 /* GCYAnimationDemoUITests.m */; };
+		3E1A08C420A3E11700C8B972 /* UIViewAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E1A08C320A3E11700C8B972 /* UIViewAnimationController.m */; };
+		3E1A08C720A3E13600C8B972 /* CoreAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E1A08C620A3E13600C8B972 /* CoreAnimationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,10 @@
 		3E1A08B020A3E0B700C8B972 /* GCYAnimationDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GCYAnimationDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E1A08B420A3E0B700C8B972 /* GCYAnimationDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GCYAnimationDemoUITests.m; sourceTree = "<group>"; };
 		3E1A08B620A3E0B700C8B972 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3E1A08C220A3E11700C8B972 /* UIViewAnimationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIViewAnimationController.h; sourceTree = "<group>"; };
+		3E1A08C320A3E11700C8B972 /* UIViewAnimationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIViewAnimationController.m; sourceTree = "<group>"; };
+		3E1A08C520A3E13600C8B972 /* CoreAnimationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreAnimationController.h; sourceTree = "<group>"; };
+		3E1A08C620A3E13600C8B972 /* CoreAnimationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreAnimationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +111,10 @@
 				3E1A089120A3E0B500C8B972 /* AppDelegate.m */,
 				3E1A089320A3E0B500C8B972 /* ViewController.h */,
 				3E1A089420A3E0B500C8B972 /* ViewController.m */,
+				3E1A08C220A3E11700C8B972 /* UIViewAnimationController.h */,
+				3E1A08C320A3E11700C8B972 /* UIViewAnimationController.m */,
+				3E1A08C520A3E13600C8B972 /* CoreAnimationController.h */,
+				3E1A08C620A3E13600C8B972 /* CoreAnimationController.m */,
 				3E1A089620A3E0B500C8B972 /* Main.storyboard */,
 				3E1A089920A3E0B700C8B972 /* Assets.xcassets */,
 				3E1A089B20A3E0B700C8B972 /* LaunchScreen.storyboard */,
@@ -265,6 +275,8 @@
 				3E1A089520A3E0B500C8B972 /* ViewController.m in Sources */,
 				3E1A08A020A3E0B700C8B972 /* main.m in Sources */,
 				3E1A089220A3E0B500C8B972 /* AppDelegate.m in Sources */,
+				3E1A08C420A3E11700C8B972 /* UIViewAnimationController.m in Sources */,
+				3E1A08C720A3E13600C8B972 /* CoreAnimationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
