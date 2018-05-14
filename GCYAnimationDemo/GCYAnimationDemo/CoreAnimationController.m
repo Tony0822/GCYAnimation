@@ -51,29 +51,31 @@
  fromValue：keyPath相应属性的初始值
  toValue：keyPath相应属性的结束值
  byValue：keyPath累加
+ removedOnCompletion: 是否回到原位置
+ fillMode {
+ kCAFillModeRemoved   默认,当动画开始前和动画结束后,动画对layer都没有影响,动画结束后,layer会恢复到之前的状态
+ kCAFillModeForwards  当动画结束后,layer会一直保持着动画最后的状态
+ kCAFillModeBackwards 和kCAFillModeForwards相对,具体参考上面的URL
+ kCAFillModeBoth      kCAFillModeForwards和kCAFillModeBackwards在一起的效果
+ }
+ timingFunction {
+  kCAMediaTimingFunctionLinear 匀速
+  kCAMediaTimingFunctionEaseIn 慢进
+  kCAMediaTimingFunctionEaseOut 慢出
+  kCAMediaTimingFunctionEaseInEaseOut 慢进慢出
+  kCAMediaTimingFunctionDefault 默认值（慢进慢出）
+ }
  */
 // 平移动画
 - (void)position {
     CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"position"];
-    // 动画持续1秒
     anim.duration = 3;
     // 因为CGPoint是结构体，所以用NSValue包装成一个OC对象
     anim.fromValue = [NSValue valueWithCGPoint:CGPointMake(105, 105)];
 //    anim.byValue = [NSValue valueWithCGPoint:CGPointMake(200, 500)];
     anim.toValue = [NSValue valueWithCGPoint:CGPointMake(300, 500)];
-//    是否回到原位置
     anim.removedOnCompletion = NO;
-//    kCAFillModeRemoved   默认,当动画开始前和动画结束后,动画对layer都没有影响,动画结束后,layer会恢复到之前的状态
-//    kCAFillModeForwards  当动画结束后,layer会一直保持着动画最后的状态
-//    kCAFillModeBackwards 和kCAFillModeForwards相对,具体参考上面的URL
-//    kCAFillModeBoth      kCAFillModeForwards和kCAFillModeBackwards在一起的效果
     anim.fillMode = kCAFillModeForwards;
-//    kCAMediaTimingFunctionLinear 匀速
-//    kCAMediaTimingFunctionEaseIn 慢进
-//    kCAMediaTimingFunctionEaseOut 慢出
-//    kCAMediaTimingFunctionEaseInEaseOut 慢进慢出
-//    kCAMediaTimingFunctionDefault 默认值（慢进慢出）
-
     anim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
     [self.redView.layer addAnimation:anim forKey:@"positionAni"];
     // 通过positionAni可以取回相应的动画对象，比如用来中途取消动画
@@ -156,12 +158,11 @@
  keyTimes:设置关键帧对应的时间点，范围：0-1。如果没有设置该属性，则每一帧的时间平分。
  
  calculationMode: {
- kCAAnimationLinear：默认值，表示当关键帧为座标点的时候，关键帧之间直接直线相连进行插值计算
- kCAAnimationDiscrete：离散的，不进行插值计算，所有关键帧直接逐个进行显示
- kCAAnimationPaced：使得动画均匀进行，而不是按keyTimes设置的或者按关键帧平分时间，此时keyTimes和timingFunctions无效
- kCAAnimationCubic：对关键帧为座标点的关键帧进行圆滑曲线相连后插值计算，这里的主要目的是使得运行的轨迹变得圆滑
- kCAAnimationCubicPaced：看这个名字就知道和kCAAnimationCubic有一定联系,其实就是在kCAAnimationCubic的基础上使得动画运行变得均匀，就是系统时间内运动的距离相同，此时keyTimes以及timingFunctions也是无效的
-
+    kCAAnimationLinear：默认值，表示当关键帧为座标点的时候，关键帧之间直接直线相连进行插值计算
+    kCAAnimationDiscrete：离散的，不进行插值计算，所有关键帧直接逐个进行显示
+    kCAAnimationPaced：使得动画均匀进行，而不是按keyTimes设置的或者按关键帧平分时间，此时keyTimes和timingFunctions无效
+    kCAAnimationCubic：对关键帧为座标点的关键帧进行圆滑曲线相连后插值计算，这里的主要目的是使得运行的轨迹变得圆滑
+    kCAAnimationCubicPaced：看这个名字就知道和kCAAnimationCubic有一定联系,其实就是在kCAAnimationCubic的基础上使得动画运行变得均匀，就是系统时间内运动的距离相同，此时keyTimes以及timingFunctions也是无效的
  }
  */
 - (void)valueKeyFrameAnim {
@@ -186,12 +187,10 @@
     CGPathAddEllipseInRect(path, NULL, CGRectMake(50, 50, 100, 100));
     anim.path = path;
     CGPathRelease(path);
-    
     anim.duration = 3;
     anim.removedOnCompletion = NO;
     anim.fillMode = kCAFillModeForwards;
     anim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
-
     [self.redView.layer addAnimation:anim forKey:@"valueKeyFrameAnim"];
 }
 #pragma mark -- CATransaction
